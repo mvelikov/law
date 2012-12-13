@@ -1,12 +1,13 @@
 RewriteEngine On
+RewriteBase /law/
 RewriteRule ^\.htaccess$ - [F]
 RewriteCond %{REQUEST_URI} =""
-RewriteRule ^.*$ /law/public/index.php [NC,L]
-RewriteCond %{REQUEST_URI} !^/law/public/.*$
-RewriteRule ^(.*)$ /law/public/$1
+RewriteRule ^.*$ public/index.php [NC,L]
+RewriteCond %{REQUEST_URI} !^public/.*$
+RewriteRule ^(.*)$ public/$1
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^.*$ - [NC,L]
-RewriteRule ^law/public/.*$ /law/public/index.php [NC,L]
+RewriteRule ^public/.*$ public/index.php [NC,L]
 
 RewriteCond %{REQUEST_FILENAME} -s [OR]
 RewriteCond %{REQUEST_FILENAME} -l [OR]
