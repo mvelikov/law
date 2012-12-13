@@ -10,6 +10,6 @@ RewriteRule ^.*$ index.php [NC,L]
 
 AuthName "Restricted Area"
 AuthType Basic
-AuthUserFile  /home/lawapp/applications/container-root/.htpasswd
+AuthUserFile  /home/lawapp/applications/lawapp/.htpasswd
 AuthGroupFile /dev/null
 require valid-user
