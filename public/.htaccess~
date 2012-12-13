@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
+
+
+AuthName "Restricted Area"
+AuthType Basic
+AuthUserFile  /home/lawapp/applications/container-root/.htpasswd
+AuthGroupFile /dev/null
+require valid-user
