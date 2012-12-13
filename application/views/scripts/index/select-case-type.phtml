@@ -1,0 +1,18 @@
+<?php
+
+if (is_array($this->cases)) {
+    echo '<ul data-role="listview" data-inset="true">';
+    foreach ($this->cases as $case) {
+        echo '<li><a href="', $this->url(array(
+            'controller' => 'index',
+            'action' => 'select-cases',
+            'home' => $this->home,
+            'court' => $this->court,
+            'city' => $this->city,
+            'case' => $case
+        ));
+        echo '">', $case, '</a></li>';
+    }
+    echo '</ul>';
+}
+?>

@@ -1,0 +1,31 @@
+<?php
+// var_dump($this->case);
+if (is_array($this->case)) : ?>
+    <ul data-role="listview" data-inset="true">
+        <li>№: <?php echo $this->case['number']; ?></li>
+        <li>Дело/НБПП: <?php echo $this->types[$this->case['type']]; ?></li>
+        <li>Съд: <?php echo $this->courts[$this->case['court']]; ?></li>
+        <li>Град: <?php echo $this->towns[$this->case['town']]; ?></li>
+        <li>Тип: <?php echo $this->cases[$this->case['case']]; ?></li>
+        <li>Ищец: <?php echo $this->case['claimant']; ?></li>
+        <li>Ответник: <?php echo $this->case['defendant']; ?></li>
+        <li>Дата: <?php echo date('r', $this->case['date']); ?></li>
+        <?php if (is_array($this->case['date_history'])): ?>
+            <li>
+                Предишни дати:
+                <ul data-role="listview" data-inset="true">
+                    <?php foreach ($this->case['date_history'] as $key => $value) :?>
+                        <li><?php echo $value; ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </li>
+        <?php endif;
+        if ($this->case['archive'] == 0) : ?>
+        <li><a href="<?php echo $this->url(array(
+            'controller'    => 'index',
+            'action'        => 'archive-case',
+            // 'id'            => $case['id']
+        ));?>">Архивирай</a>
+        <?php endif; ?>
+    </ul>
+<?php endif; ?>

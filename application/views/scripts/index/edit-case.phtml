@@ -1,0 +1,12 @@
+ <?php
+    // var_dump($this->dateHistory );
+    if (is_array($this->dateHistory)) :
+        echo "Дати: \n";
+        echo '<ul data-role="listview" data-inset="true">';
+        foreach ($this->dateHistory as $date) : ?>
+            <li><?php echo $date; ?></li>
+        <?php endforeach;
+        echo "</ul>\n";
+    endif;
+    echo $this->form;
+ ?>

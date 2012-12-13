@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Law</title>
+
+        <!--link href="<?php echo $this->baseUrl('css/jquery.mobile-1.0.css'); ?>" media="screen" rel="stylesheet" type="text/css" /-->
+        <?php
+        echo $this->headLink()
+                ->appendStylesheet($this->baseUrl('css/jquery.mobile-1.0.css'))
+                ->appendStylesheet($this->baseUrl('css/jquery.mobile.datebox-1.0.0.min.css'));
+        echo $this->headScript()
+                ->prependFile($this->baseUrl('js/jquery.mobile.datebox-1.0.0.min.js'))
+                ->prependFile($this->baseUrl('js/jquery.mobile-1.0.js'), 'text/javascript')
+                ->prependFile($this->baseUrl('js/custom.js'), 'text/javascript')
+                ->prependFile($this->baseUrl('js/jquery.min.js'), 'text/javascript');
+
+        ?>
+    </head>
+    <body>
+        <div id="page" data-role="page">
+            <div id="page-header" data-role="header">
+                <a href="<?php echo $this->baseUrl(); ?>" data-transition="pop" data-icon="home">Начало</a>
+                <h1>
+                    <?php echo $this->title; ?>
+                </h1>
+                <?php if (!empty($this->edit)): ?>
+                    <a href="<?php echo $this->url($this->edit['urlConfig']); ?>" data-icon="gear">
+                        <?php echo $this->edit['text']; ?>
+                    </a>
+                <?php endif; ?>
+            </div>
+            <div id="page-content" data-role="content">
+                <h2><?php echo $this->message; ?></h2>
+                <?php echo $this->layout()->content ?>
+            </div>
+        </div>
+
+    </body>
+</html>

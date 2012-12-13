@@ -1,43 +1,20 @@
-<style>
-    a:link,
-    a:visited
-    {
-        color: #0398CA;
+<?php
+// var_dump($this);
+if (is_array($this->menu)) {
+    echo '<ul data-role="listview" data-inset="true">';
+    foreach ($this->menu as $value) {
+        $urlConfig = array(
+            'controller' => $value['controller'],
+            'action' => $value['action'],
+        );
+        if (is_array($value['options'])) {
+            foreach ($value['options'] as $key => $opt) {
+                $urlConfig[$key] = $opt;
+            }
+        }
+        echo '<li><a href="', $this->url($urlConfig);
+        echo "\">" . $value['label'] . "</a></li>";
     }
-
-    span#zf-name
-    {
-        color: #91BE3F;
-    }
-
-    div#welcome
-    {
-        color: #444444;
-    	font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-style: normal;
-        background-color: #F0F0F0;
-        width:  600px;
-        height: 400px;
-        border: 2px solid #444444;
-        overflow: hidden;
-        text-align: center;
-    }
-
-    div#more-information
-    {
-        height: 100%;
-    }
-</style>
-<div id="welcome">
-    <h1>Welcome to the <span id="zf-name">Zend Framework!</span></h1>
-
-    <h3>This is your project's main page</h3>
-
-    <div id="more-information">
-        <p><img src="https://my.phpcloud.com/images/applogos/empty-zf-logo.png" /></p>
-        <p>
-            Helpful Links: <br />
-            <a href="http://framework.zend.com/">Zend Framework Website</a> |
-            <a href="http://framework.zend.com/manual/en/">Zend Framework Manual</a>
-        </p>
-    </div>
-</div>
+    echo "</ul>";
+}
+?>

@@ -1,0 +1,17 @@
+<?php
+if (is_array($this->cases) && count($this->cases) > 0) {
+        echo "<ul data-role=\"listview\" data-inset=\"true\" data-filter=\"true\">\n";
+        foreach ($this->cases as $case) {
+            echo "<li><a href=\"";
+            echo $this->url(array(
+                'controller'    => 'index',
+                'action'        => 'view-case',
+                'id'            => $case['id']
+            ));
+            echo "\">Дело № ", $case['number'], "</a></li>";
+        }
+        echo "</ul>";
+    } else {
+        echo "Няма дела!";
+    }
+?>
